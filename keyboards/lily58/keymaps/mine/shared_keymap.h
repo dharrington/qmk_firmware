@@ -8,6 +8,7 @@ enum custom_keycodes {
 #define ______ KC_TRNS
 #define XXXXXX KC_NO
 #define CTL_SPC RCTL_T(KC_SPC)
+#define CTL_BSPC RCTL_T(KC_BSPC)
 #define _BASE 0
 #define _SYM 1
 #define _NAV 2
@@ -41,15 +42,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                             KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, \
   MO(_EXTRA), KC_A, KC_S, KC_D, LT(_NUM, KC_F), LT(_FNUM, KC_G),         KC_H, LT(_NAV2, KC_J), KC_K, KC_L, MO(_SYM), KC_SCLN,\
   KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, XXXXXX,             XXXXXX, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_QUOT, \
-  XXXXXX, LALT_T(KC_DEL), LCTL_T(KC_BSPC), LT(_NAV,KC_ENT),                   LALT_T(KC_ESC), CTL_SPC, KC_RGUI, XXXXXX,\
+  XXXXXX, LALT_T(KC_DEL), CTL_BSPC, LT(_NAV,KC_ENT),                   LALT_T(KC_ESC), CTL_SPC, KC_RGUI, XXXXXX,\
   _,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
 
 // Symbols
 [_SYM] = LAYOUT(\
   XXXXXX, XXXXXX,  XXXXXX,  XXXXXX,  XXXXXX, XXXXXX,                 XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,\
-  XXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR, KC_PERC,                KC_CIRC, KC_AMPR, KC_ASTR, XXXXXX, XXXXXX, KC_F12,\
+  XXXXXX, KC_EXLM, KC_AT,   KC_HASH, KC_DLR, KC_PERC,                KC_CIRC, KC_AMPR, KC_ASTR, KC_BSLS, XXXXXX, KC_F12,\
   XXXXXX, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_GRV,               KC_MINS, KC_EQL, KC_UNDS, KC_PLUS, _______, XXXXXX, \
-  _______, XXXXXX, XXXXXX, KC_LBRC, KC_RBRC, KC_TILD, XXXXXX,  XXXXXX, XXXXXX, KC_MINS, KC_PIPE, XXXXXX, XXXXXX, XXXXXX, \
+  _______, XXXXXX, XXXXXX, KC_LBRC, KC_RBRC, KC_TILD, XXXXXX,  XXXXXX, XXXXXX, XXXXXX, KC_PIPE, XXXXXX, XXXXXX, XXXXXX, \
   _______, _______, _______, _______,                               _______, _______, _______, TG(_GAM), \
   _,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
 
@@ -57,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAV] = LAYOUT(\
   XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                 XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, \
   XXXXXX, XXXXXX, LALT(KC_MINS), LSA(KC_MINS), LCTL(KC_Y), XXXXXX,   VIM_Y, LCTL(KC_Z), XXXXXX, VIM_O, LCTL(KC_V), XXXXXX, \
-  KC_CAPS,XXXXXX, KC_F3, LSFT(KC_DEL), KC_LGUI, _______,          KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______, XXXXXX,\
+  KC_CAPS, KC_LSFT, KC_F3, LSFT(KC_DEL), KC_LGUI, _______,          KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______, XXXXXX,\
   _______, XXXXXX, XXXXXX, XXXXXX, KC_APP, KC_PSCR, XXXXXX,      XXXXXX, XXXXXX, KC_PGDN, KC_PGUP, KC_HOME, KC_END, XXXXXX, \
-  _______, _______, _______, _______,                                 LALT_T(KC_BSPC), _______, KC_DEL, _______, \
+  _______, _______, _______, _______,                                 _______, _______, _______, _______, \
   _,_,_,_,_,_,_, _, _, _,_,_,_,_,_,_,_,_),
 
 // Navigation 2
@@ -74,17 +75,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Numbers
 [_NUM] = LAYOUT(\
   XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, \
-  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             KC_ASTR, KC_7, KC_8, KC_9, KC_PLUS, XXXXXX, \
-  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             KC_SLASH, KC_4, KC_5, KC_6, KC_MINS, XXXXXX, \
-  _______, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, TG(_NUM),             XXXXXX, KC_0, KC_1, KC_2, KC_3, KC_DOT, XXXXXX, \
+  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX, KC_7, KC_8, KC_9, KC_PMNS, KC_PSLS, \
+  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX, KC_4, KC_5, KC_6, KC_PPLS, KC_PAST, \
+  _______, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,            XXXXXX, KC_0, KC_1, KC_2, KC_3, KC_DOT, XXXXXX, \
    _______, _______, _______, _______,                                 _______, _______, _______, _______, \
    _,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
 
 [_FNUM] = LAYOUT(\
   XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, \
-  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX,  KC_F7, KC_F8, KC_F9, KC_F10, XXXXXX, \
-  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX,  KC_F4, KC_F5, KC_F6, KC_F11, XXXXXX, \
-  _______, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,             XXXXXX, XXXXXX, KC_F1, KC_F2, KC_F3, KC_F12, XXXXXX, \
+  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX,  KC_F7, KC_F8, KC_F9, KC_F10, KC_VOLU, \
+  XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,                             XXXXXX,  KC_F4, KC_F5, KC_F6, KC_F11, KC_MUTE, \
+  _______, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX,             XXXXXX, XXXXXX, KC_F1, KC_F2, KC_F3, KC_F12, KC_VOLD, \
   _______, _______, _______, _______,                                   _______, _______, _______, _______, \
   _,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
 
@@ -147,7 +148,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
       // case LT(_NUM, KC_F):
-      case LCTL_T(KC_BSPC):
+      case CTL_BSPC:
             // Immediately select the hold action when another key is pressed.
             return true;
       default:
@@ -159,7 +160,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CTL_SPC:
-            return 300;
+            return 350;
         default:
             return TAPPING_TERM;
     }
